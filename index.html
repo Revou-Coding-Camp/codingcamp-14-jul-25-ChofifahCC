@@ -84,18 +84,79 @@
     </section>
 
     <!-- Bagian Message Us -->
-     <section class="message" id="message">
-        <h2 class="heading">Message<span></span>Us</h2>
-        <form action="#">
-            <div class="input-box"> 
-                <input type="text" placeholder="Nama Lengkap">
-                <input type="date" name="tgllahir" id="tgllahir">
-                <input type="text" placeholder="Jenis Kelamin">
-                <textarea name="" id="">Pesan</textarea>
-                <textarea name="message" id="" placeholder="Pesan"></textarea>
-            </div>
-            <input type="submit" value="Submit" class="btn">
-        </form>
-     </section>
+    <section class="message" id="message">
+        <h2 class="heading">Message <span>Us</span></h2>
+        <div class="form-container">
+    <!-- Form -->
+    <form class="form-left" id="form">
+      <div class="form-group">
+        <label for="nama">Nama Lengkap</label>
+        <input type="text" id="nama" placeholder="Nama Lengkap" required>
+      </div>
+
+      <div class="form-group">
+        <label for="tanggal">Tanggal Lahir</label>
+        <input type="date" id="tanggal" required>
+      </div>
+
+      <div class="form-group">
+        <label>Jenis Kelamin</label>
+          <input type="radio" name="jeniskelamin" id="lakilaki" value="Laki-laki">
+          <label for="lakilaki">Laki-laki</label>
+          <input type="radio" name="jeniskelamin" id="perempuan" value="Perempuan">
+          <label for="perempuan">Perempuan</label>
+      </div>
+
+      <div class="form-group">
+        <label for="pesan">Pesan</label>
+        <textarea id="pesan" rows="4" placeholder="Pesan" required></textarea>
+      </div>
+
+      <button type="submit" class="btn">Submit</button>
+    </form>
+
+    <!-- Hasil -->
+    <div class="form-right">
+        <div class="message-content">
+            <h2>Isikan Data Diri Terlebih Dahulu!</h2>
+        </div>
+      <div class="form-group">
+        <p id="output"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('form');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Mencegah reload
+
+      const nama = document.getElementById('nama').value;
+      const tanggal = document.getElementById('tanggal').value;
+      const pesan = document.getElementById('pesan').value;
+
+      const jenisKelamin = document.querySelector('input[name="jeniskelamin"]:checked');
+      const jenis = jenisKelamin ? jenisKelamin.value : '';
+
+      const tanggalFormatted = tanggal
+        ? new Date(tanggal).toLocaleDateString('id-ID', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+          })
+        : '';
+
+      output.innerHTML = `
+        Nama : ${nama} <br>
+        Tanggal Lahir : ${tanggalFormatted} <br>
+        Jenis Kelamin : ${jenis} <br>
+        Pesan : ${pesan}
+      `;
+    });
+  </script>
+    </section>
 </body>
+
 </html>
