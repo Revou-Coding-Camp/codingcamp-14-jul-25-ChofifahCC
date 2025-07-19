@@ -1,0 +1,238 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+:root {
+    --bg-color: #fff;
+    --sn-bg-color: #fff;
+    --text-color:#000;
+    --main-color: #fbccaf;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 2rem;
+}
+
+/* Bagian Header */
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 5%;
+    background: var(--main-color);
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease;
+}
+
+.logo {
+    font-size: 3rem;
+    color: var(--bg-color);
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.navbar a {
+    font-size: 2rem;
+    color: var(--bg-color);
+    margin-left: 4rem;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--text-color);
+}
+
+
+/* Bagian home */
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-img img {
+    width: 25vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    cursor: pointer;
+    animation: floatImage 4s ease-in-out infinite;
+    transition: 0.4s ease;
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 35px var(--main-color),
+                0 0 45px var(--main-color);
+}
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-2.4rem);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+.home-content {
+    margin-left: 5rem;
+}
+.home-content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 2rem;
+}
+
+span {
+    color: var(--main-color);
+}
+
+.home-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+.home-content p {
+    font-size: 1.5rem;
+}
+
+/* Bagian Our Profile */
+.heading {
+    font-size: 5rem;
+    text-align: center;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* gap: 1rem; */
+    background: var(--sn-bg-color);
+}
+
+.profile-content {
+    padding: 0 4rem;
+}
+
+.profile-content h2 {
+    text-align: left;
+    line-height: 1;
+}
+
+.profile-content h3 {
+    font-size: 3rem;
+}
+
+.profile-content p {
+    font-size: 1.5rem;
+    margin: 2rem 0;
+}
+
+
+/* Bagian Portofolio */
+.portofolio h2{
+    /* text-align: center; */
+    margin-bottom: 4rem;
+}
+
+.portofolio-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.portofolio-content .portofolio-box {
+    flex: 1 1 30rem;
+    background: var(--sn-bg-color);
+    padding: 6rem 2rem 6rem;
+    border-radius: 50%;
+    text-align: center;
+    border: 0.3rem solid var(--bg-color);
+    transition: 0.3s ease;
+}
+.portofolio-content .portofolio-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1);
+}
+.portofolio-box i {
+    font-size: 7rem;
+    color: var(--main-color);
+}
+.portofolio-box h3 {
+    font-size: 3rem;
+}
+.portofolio-box p {
+    font-size: 1rem;
+    margin: 1rem 0 3rem;
+}
+
+
+/* Bagian Message Us */
+.message {
+    background: var(--bg-color);
+}
+
+.message h2 {
+    margin-bottom: 3rem;
+    color: var(--main-color);
+}
+
+.message form {
+    max-width: 80rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.message form .input-box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.message form .input-box input,
+.message form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6 rem;
+    color: var(--text-color);
+    background: var(--bg-color);
+    border-radius: 0.8rem;
+    border: 0.25rem solid var(--main-color);
+    margin: 1rem 0;
+    resize: none;
+}
+
+.message form .btn {
+    margin-top: 2rem;
+}
